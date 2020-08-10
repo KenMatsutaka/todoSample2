@@ -28,15 +28,20 @@
 export default {
   data() {
     return {
-      todos: ["hoge", "moge"],
+      todos: [],
     };
   },
+  created() {
+    //localStorage.setItem("todos", null);
+    this.todos = JSON.parse(localStorage.getItem("todos")) || [];
+  },
   methods: {
-    deleteTodo(id) {
-      console.log("delete todo:" + id);
+    deleteTodo(index) {
+      this.todos.splice(index, 1);
+      localStorage.setItem("todos", JSON.stringify(this.todos));
     },
     addTodo() {
-      console.log("add todo");
+      this.$router.push("/todos/add");
     },
   },
 };
