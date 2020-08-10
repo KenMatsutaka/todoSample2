@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-toolbar dark color="indigo">
-      <router-link to="/">
+      <router-link class="icon-link" to="/">
         <v-icon>mdi-arrow-left</v-icon>
       </router-link>
       <v-toolbar-title class="white--text">My Todo</v-toolbar-title>
@@ -39,5 +39,8 @@ function checkNewAdd(value) {
 }
 </script>
 
-<style>
+<style scoped>
+.icon-link {
+  text-decoration: none;
+}
 </style>
